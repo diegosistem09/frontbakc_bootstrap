@@ -18,7 +18,12 @@ class SesionController extends Controller
      */
     public function index(Request $request)
     {
-        $Response = Http::get('https://mindicador.cl/api'); //http://127.0.0.1:8000/api/usuarios
+
+      
+        $usuario = $request->usuario;
+        $password = $request->password;
+
+        $Response = Http::get('http://127.0.0.1:8000/api/usuarios/1236546897?nombre='.$usuario.'&contrasena='.$password); //http://127.0.0.1:8000/api/usuarios
         $datos_usuario = $Response->json();
         
         $id_usuario = $datos_usuario->id;
